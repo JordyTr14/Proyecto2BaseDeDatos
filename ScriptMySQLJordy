@@ -1,0 +1,22 @@
+CREATE DATABASE BDNotas;
+USE BDNotas;
+CREATE TABLE alumnos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    carnet VARCHAR(20),
+    nombres VARCHAR(50),
+    apellidos VARCHAR(50),
+    seccion VARCHAR(5),
+    nota DOUBLE);
+INSERT INTO alumnos(carnet, nombres, apellidos, seccion, nota)
+VALUES
+('2025001', 'Juan', 'Perez', 'A', 85),
+('2025002', 'Maria', 'Lopez', 'B', 90);
+SELECT * FROM alumnos;
+UPDATE alumnos
+SET nota = 95
+WHERE carnet = '2025001';
+DELETE FROM alumnos
+WHERE carnet = '2025002';
+SELECT seccion, AVG(nota) AS promedio
+FROM alumnos
+GROUP BY seccion;
